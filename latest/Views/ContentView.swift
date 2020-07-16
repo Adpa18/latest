@@ -9,9 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject private var manager = PackageManager.shared
+        
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack {
+            PackageList(packages: self.$manager.packages)
+            if self.manager.editMode {
+             NewPackage()
+            }
+            Toolbar(lastUpdate: self.$manager.lastUpdate)
+        }
+        .padding(12)
     }
 }
 
