@@ -5,9 +5,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     var popover = NSPopover()
     var statusBar: StatusBarController?
-        
-    
-    
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         popover.contentViewController = ViewController()
                 
